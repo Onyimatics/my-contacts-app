@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {DialogModule} from '@ngneat/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HotToastModule} from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     DialogModule.forRoot(),
     BrowserAnimationsModule,
+    HotToastModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

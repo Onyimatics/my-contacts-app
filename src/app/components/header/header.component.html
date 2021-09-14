@@ -7,7 +7,7 @@
         </span>
   </div>
   <span class="flex-grow"></span>
-  <button class="flex items-center mr-2 p-2" (click)="addContact.emit()">
+  <button class="flex items-center mr-2 p-2" (click)="addContact()">
     <span class="material-icons">add_circle</span>
   </button>
   <button *ngIf="!search" class="flex items-center" (click)="showSearch()">
@@ -16,7 +16,7 @@
 
   <div *ngIf="search" class="flex flex-row bg-purple-400 rounded p-2 w-1/2 sm:w-auto">
     <input class="bg-purple-400 outline-none " autoFocus="true"
-           (keydown)="searchContact($event)" />
+           (keydown)="searchContact($event.target.value)" />
     <button class="flex items-center" (click)="hideSearch()">
       <span class="material-icons">close</span>
     </button>

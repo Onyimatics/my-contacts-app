@@ -1,4 +1,5 @@
 import {Component, OnInit, Output, EventEmitter, ViewChild, ElementRef} from '@angular/core';
+import {ContactsStore} from '../../store/contacts.store';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +8,16 @@ import {Component, OnInit, Output, EventEmitter, ViewChild, ElementRef} from '@a
 })
 export class HeaderComponent implements OnInit {
 
-  @ViewChild('mainIcon') mainIcon!: ElementRef;
+  // @ViewChild('mainIcon') mainIcon!: ElementRef;
 
-  @Output() searchContacts = new EventEmitter<string>();
-  @Output() addContact = new EventEmitter<any>();
+  // @Output() searchContacts = new EventEmitter<string>();
+  // @Output() addContact = new EventEmitter<any>();
 
   search = false;
 
-  constructor() { }
+  constructor(
+    private contactsStore: ContactsStore,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -27,8 +30,12 @@ export class HeaderComponent implements OnInit {
     this.search = false;
   }
 
-  searchContact(event: any) {
-    this.searchContacts.emit(event.target.value)
+  searchContact(searchString: string) {
+    this.contactsStore.patchState({ searchString })
+  }
+
+  addContact() {
+    this.contactsStore.showAddDialog();
   }
 
 }

@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import {DialogService} from '@ngneat/dialog';
 import {AddContactComponent} from './components/add-contact/add-contact.component';
 import {filter} from 'rxjs/operators';
+import {ContactsStore} from './store/contacts.store';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [ContactsStore],
 })
 export class AppComponent {
   title = 'my-contacts-app';
